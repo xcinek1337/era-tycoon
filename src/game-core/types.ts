@@ -1,9 +1,11 @@
 import type { gameActions } from "./gameActions";
+import type { eras, factories, region } from "./gameScenario";
 
 export type GameState = {
   playerDecisions: string[];
-  selectedFactory: keyof typeof gameActions;
-  selectedEra: "steam" | "industrial" | "modern"; 
+  selectedFactory: Factory;
+  selectedEra: Era;
+  selectedRegion: Region;
   turn: number;
   actionPoints: number;
   availableActions: string[];
@@ -22,3 +24,10 @@ export type GameEvent = {
   name: string;
   apply: (state: GameState) => GameState;
 };
+export type SelectScenarioProps = {
+  handleSelect: (select: any) => void;
+  state?:GameState|null
+};
+export type Era = (typeof eras)[number];
+export type Region = (typeof region)[number];
+export type Factory = (typeof factories)[number]["name"];

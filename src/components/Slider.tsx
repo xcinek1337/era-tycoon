@@ -27,7 +27,7 @@ export default function Slider() {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, []); 
 
   return (
     <div className="overflow-hidden w-[130px] h-[100px] rounded-xl shadow-lg mx-auto">

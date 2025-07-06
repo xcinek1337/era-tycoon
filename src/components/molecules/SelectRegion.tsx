@@ -33,7 +33,7 @@ const SelectEra = ({ handleSelect }: SelectScenarioProps) => {
         <div className="flex flex-col justify-between items-center">
           <img
             className="w-40"
-            src={`/region/${region[index]}.jpg`}
+            src={`/region/region.jpg`}
             alt={region[index]}
             onClick={()=> handleSelect(region[index])}
           />

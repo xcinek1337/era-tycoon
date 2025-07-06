@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { GameState } from "./game-core/types";
-import runTurn from "./game-core/engine";
+// import runTurn from "./game-core/engine";
 import ChoosingState from "./components/ChoosingStage";
 import StartScreen from "./components/StartScreen";
 
@@ -8,14 +8,14 @@ function App() {
   const [start, setStart] = useState<boolean>(true);
   const [state, setState] = useState<GameState | null>(null);
 
-  function handleClick() {
-    if (typeof state === "object" && state !== null) {
-      // state istnieje i jest obiektem
-      const nextRound = runTurn(state, "hire worker");
+  // function handleClick() {
+  //   if (typeof state === "object" && state !== null) {
+  //     // state istnieje i jest obiektem
+  //     const nextRound = runTurn(state, "hire worker");
 
-      setState(nextRound);
-    }
-  }
+  //     setState(nextRound);
+  //   }
+  // }
   function handleStart() {
     setState({
       selectedEra: "steam",

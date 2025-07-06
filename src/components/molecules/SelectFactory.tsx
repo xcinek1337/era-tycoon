@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight, UnfoldHorizontal } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import type { SelectScenarioProps } from "../../game-core/types";
 import { factories } from "../../game-core/gameScenario";
@@ -40,8 +40,8 @@ const SelectFactory = ({ handleSelect, state }: SelectScenarioProps) => {
         />
         <div className="flex flex-col justify-between items-center">
           <img
-            className="w-40"
-            src={`/factories/${avaliableFactories[index]}.jpg`}
+            className="w-40 sm:w-80"
+            src={`/factory-material/${avaliableFactories[index]['name']}.jpg`}
             alt={avaliableFactories[index].name}
             onClick={() => handleSelect(avaliableFactories[index].name)}
           />

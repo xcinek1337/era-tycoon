@@ -1,14 +1,14 @@
 export const factories = [
   {
-    name: "Textile Mill",
+    name: "Textile_Mill",
     eras: ["steam", "industrial", "modern"],
   },
   {
-    name: "Software House",
+    name: "Software_House",
     eras: ["modern"],
   },
   {
-    name: "Steel Foundry",
+    name: "Steel_Foundry",
     eras: ["industrial", "modern"],
   },
 ] 
@@ -20,3 +20,5 @@ export const region = [
   "village in Poland",
   "Japan",
 ] as const;
+
+export type FactoryName = typeof factories[number]["name"];

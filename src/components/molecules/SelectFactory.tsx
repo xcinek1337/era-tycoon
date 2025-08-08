@@ -1,6 +1,6 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
-import type { SelectScenarioProps } from "../../game-core/types";
+import type { Era, SelectScenarioProps } from "../../game-core/types";
 import { factories } from "../../game-core/gameScenario";
 
 const SelectFactory = ({ handleSelect, state }: SelectScenarioProps) => {
@@ -11,8 +11,11 @@ const SelectFactory = ({ handleSelect, state }: SelectScenarioProps) => {
     console.error("error");
     return;
   }
+
+    const selectedEra = state.selectedEra as Era;
+
   const avaliableFactories = factories.filter((factory) =>
-    factory.eras.includes(state?.selectedEra)
+    factory.eras.includes(selectedEra)
   );
   console.log(avaliableFactories);
 

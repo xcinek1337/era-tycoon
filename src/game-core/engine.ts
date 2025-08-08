@@ -1,5 +1,4 @@
-import { gameActions } from "./gameActions";
-import { eraEvents, factoryEvents } from "./gameEvents";
+import { eraEvents, factoryEvents, gameActions } from "./gameData";
 import type { GameEvent, GameState } from "./types";
 
 export default function runTurn(state: GameState, action: string): GameState {
@@ -43,12 +42,17 @@ export function calculateEfficiency(state: GameState): number {
 
 export function fnGenerateActions(state: GameState): string[] {
   // TODO: nasluchuj na state, jesli jest cos naddzwtczajnego, to sprobuj zwrocic odpoowiednia akcje
-  const roundActions = [...gameActions[state.selectedFactory]].sort(
-    () => 0.5 - Math.random()
-  );
-  console.log("generuje dostepne akcje", roundActions.slice(0, 3));
+  const factoryName = state.selectedFactory;
+  if (!(factoryName in gameActions)) {
+    console.error("Nieznana fabryka:", factoryName);
+    return [];
+}
+const roundActions = [...gameActions[factoryName as Factory]].sort(() => 0.5 - Math.random());
 
+  console.log("generuje dostepne akcje", roundActions.slice(0, 3));
+  
   return roundActions.slice(0, 2);
+
 }
 
 export function fnTriggerEvent(state: GameState): GameEvent | undefined {

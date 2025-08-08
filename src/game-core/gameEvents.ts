@@ -1,4 +1,6 @@
-export const factoryEvents = {
+import type { Factory } from "./types";
+
+export const factoryEvents: Record<Factory, string[]> = {
   Textile_Mill: ["fire", "hunger"],
 };
 
